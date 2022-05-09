@@ -22,3 +22,84 @@ body{
     width: 100%;
     background-color: aqua;
 }
+
+.wrapper > input{
+    display: none;
+}
+
+.memes{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    z-index: 0;
+    transform: scale(1.5);
+    transition: transform ease-in 0.5s,
+    opacity ease-in 0.5s;
+}
+
+#mem1:checked ~ .memes-box > .mem1,
+#mem2:checked ~ .memes-box > .mem2,
+#mem3:checked ~ .memes-box > .mem3,
+#mem4:checked ~ .memes-box > .mem4,
+#mem5:checked ~ .memes-box > .mem5 {
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+}
+
+.mem1{
+    background-image: url(./memassets/mem1.jpg);
+}
+
+.mem2{
+    background-image: url(./memassets/mem2.jpg);
+}
+
+.mem3{
+    background-image: url(./memassets/mem3.jpg);
+}
+
+.mem4{
+    background-image: url(./memassets/mem4.jpg);
+}
+
+.mem5{
+    background-image: url(./memassets/mem5.jpg);
+}
+
+.mem-controls{
+    position: absolute;
+    left: 50%;
+    margin-left: -98px;
+}
+
+.wrapper label{
+    position: relative;
+    display: inline-block;
+    height: 8px;
+    border-radius: 50%;
+    margin: 25px 12px 0 16px;
+    cursor: pointer;
+    transition: background-image ease-in 0.5s;
+}
+
+.wrapper label::after{
+    position: absolute;
+    display: block;
+    content: ' ';
+    border: 2px solid #ddd;
+    height: 12px;
+    width: 12px;
+    left: -4px;
+    border-radius: 50%;
+}
+
+.wrapper label:hover, 
+#mem1:checked ~ .mem-controls label:nth-of-type(1),
+#mem2:checked ~ .mem-controls label:nth-of-type(2),
+#mem3:checked ~ .mem-controls label:nth-of-type(3),
+#mem4:checked ~ .mem-controls label:nth-of-type(4),
+#mem5:checked ~ .mem-controls label:nth-of-type(5) {
+	background: #ddd;
+}
