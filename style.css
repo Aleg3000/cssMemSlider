@@ -5,14 +5,14 @@
 }
 
 body{
-    background-color: blueviolet;
+    background-image: url(./memassets/wall.jpg);
 }
 
 .wrapper{
     position: relative;
     height: 600px;
-    width: 500px;
-    margin: 20% auto;
+    width: 440px;
+    margin: 30% auto;
 }
 
 .memes-box{
@@ -20,7 +20,6 @@ body{
     height: 100%;
     overflow: hidden;
     width: 100%;
-    background-color: aqua;
 }
 
 .wrapper > input{
@@ -31,18 +30,19 @@ body{
     position: absolute;
     height: 100%;
     width: 100%;
-    background-size: cover;
+    background-position: center;
+    background-size: contain;
+    /* background-repeat: none; */
     z-index: 0;
     transform: scale(1.5);
-    transition: transform ease-in 0.5s,
-    opacity ease-in 0.5s;
+    transition: transform ease-in 0.5s, opacity ease-in 0.5s;
 }
 
-#mem1:checked ~ .memes-box > .mem1,
-#mem2:checked ~ .memes-box > .mem2,
-#mem3:checked ~ .memes-box > .mem3,
-#mem4:checked ~ .memes-box > .mem4,
-#mem5:checked ~ .memes-box > .mem5 {
+#mem1:checked ~ .memes-box > .outerBorder > .innerBorder > .mem1,
+#mem2:checked ~ .memes-box > .outerBorder > .innerBorder > .mem2,
+#mem3:checked ~ .memes-box > .outerBorder > .innerBorder > .mem3,
+#mem4:checked ~ .memes-box > .outerBorder > .innerBorder > .mem4,
+#mem5:checked ~ .memes-box > .outerBorder > .innerBorder > .mem5 {
 	opacity: 1;
 	z-index: 1;
 	transform: scale(1);
@@ -78,20 +78,22 @@ body{
     position: relative;
     display: inline-block;
     height: 8px;
+    width: 8px;
     border-radius: 50%;
     margin: 25px 12px 0 16px;
     cursor: pointer;
-    transition: background-image ease-in 0.5s;
+    transition: background ease-in 0.5s;
 }
 
 .wrapper label::after{
     position: absolute;
     display: block;
     content: ' ';
-    border: 2px solid #ddd;
+    border: 2px solid black;
     height: 12px;
     width: 12px;
     left: -4px;
+    top: -4px;
     border-radius: 50%;
 }
 
@@ -101,5 +103,26 @@ body{
 #mem3:checked ~ .mem-controls label:nth-of-type(3),
 #mem4:checked ~ .mem-controls label:nth-of-type(4),
 #mem5:checked ~ .mem-controls label:nth-of-type(5) {
-	background: #ddd;
+	background: black;
 }
+
+.outerBorder {
+    background-color: #1e1e1e;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 4px 7px 14px rgba(50, 50, 50, 0.44);
+    background: linear-gradient(135deg, #000000 0%,#4c4c4c 83%,#000000 100%);
+    }
+    
+ .innerBorder {
+    height: 88%;
+    left: 7%;
+    position: absolute;
+    top: 6%;
+    width: 86%;
+    box-shadow: inset 5px 5px 12px rgba(50, 50, 50, 0.44);
+    overflow: hidden;
+    }
+    
