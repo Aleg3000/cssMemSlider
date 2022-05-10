@@ -1,0 +1,134 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url(./memassets/wall.jpg);
+	color: #c9d1d9;
+	font-family: sans-serif;
+}
+
+main {
+	padding: 30px;
+}
+
+.mem__wraper {
+	display: flex;
+	justify-content: space-between;
+	align-items: self-start;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 700px;
+	height: 50vh;
+	margin: 80px auto 0;
+}
+
+.mem__wraper > input {
+	display: none;
+}
+
+.mem-slider {
+	position: relative;
+	width: inherit;
+	height: 50vh;
+	overflow: hidden;
+	background-color: black;
+}
+.mem-quotes-box {
+	width: 1px;
+	padding: 10px 0;
+    color: black;
+    font-size: 24px;
+}
+.mem-quotes-box > span {
+	position: absolute;
+	opacity: 0;
+	z-index: 0;
+	transition: opacity ease-in-out .5s;
+}
+
+.mem-controls {
+	display: flex;
+}
+
+.mem-controls label {
+	display: inline-block;
+	padding: 20px 8px;
+	cursor: pointer;
+}
+
+.mem-controls label span {
+	display: block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: 2px solid black;
+	transition: background ease-in-out .5s;
+}
+
+.mem-slides {
+	position: absolute;
+	z-index: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: inherit;
+	height: inherit;
+	opacity: 0;
+	transform: scale(1.5);
+	transform: translateX(-100%);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+.mem-slides img {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+	margin: 0 auto;
+}
+
+.mem__wraper label:hover span,
+#mem1:checked ~ .mem-controls label:nth-of-type(1) span,
+#mem2:checked ~ .mem-controls label:nth-of-type(2) span,
+#mem3:checked ~ .mem-controls label:nth-of-type(3) span,
+#mem4:checked ~ .mem-controls label:nth-of-type(4) span {
+	background: black;
+}
+
+#mem1:checked ~ .mem-quotes-box > .mem-quote1,
+#mem2:checked ~ .mem-quotes-box > .mem-quote2,
+#mem3:checked ~ .mem-quotes-box > .mem-quote3,
+#mem4:checked ~ .mem-quotes-box > .mem-quote4 {
+	opacity: 1;
+	z-index: 1;
+}
+
+#mem1:checked ~ .mem-slider > .mem-slide1,
+#mem2:checked ~ .mem-slider > .mem-slide2,
+#mem3:checked ~ .mem-slider > .mem-slide3,
+#mem4:checked ~ .mem-slider > .mem-slide4 {
+	opacity: 1;
+	z-index: 1;
+	transform: translateX(0%);
+}
+
+@media (max-width: 798px) {
+	.mem__wraper {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: unset;
+		align-items: center;
+	}
+	
+	.mem-quotes-box {
+		align-self: flex-start;
+		order: 3;
+		padding: 0;
+	}
+
+	.mem-controls {
+		flex-wrap: wrap;
+	}
+}
