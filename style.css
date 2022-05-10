@@ -5,6 +5,7 @@
 }
 
 body{
+    overflow-y: hidden;
     background-image: url(./memassets/wall.jpg);
 }
 
@@ -12,7 +13,7 @@ body{
     position: relative;
     height: 600px;
     width: 440px;
-    margin: 30% auto;
+    margin: 20vh auto;
 }
 
 .memes-box{
@@ -38,11 +39,38 @@ body{
     transition: transform ease-in 0.5s, opacity ease-in 0.5s;
 }
 
+.quotes-box{
+    position: relative;
+}
+
+.quote{
+    width: 440px;
+    text-align: center;
+    z-index: 99;
+    position: absolute;
+    top: -30px;
+    font-size: 24px;
+    color: white;
+    z-index: 0;
+    transform: scale(1.5);
+    transition: transform ease-in 0.5s, opacity ease-in 0.5s;
+    opacity: 0;
+}
+
 #mem1:checked ~ .memes-box > .outerBorder > .innerBorder > .mem1,
 #mem2:checked ~ .memes-box > .outerBorder > .innerBorder > .mem2,
 #mem3:checked ~ .memes-box > .outerBorder > .innerBorder > .mem3,
 #mem4:checked ~ .memes-box > .outerBorder > .innerBorder > .mem4,
 #mem5:checked ~ .memes-box > .outerBorder > .innerBorder > .mem5 {
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+}
+#mem1:checked ~ .quotes-box >  .quote1,
+#mem2:checked ~ .quotes-box >  .quote2,
+#mem3:checked ~ .quotes-box >  .quote3,
+#mem4:checked ~ .quotes-box >  .quote4,
+#mem5:checked ~ .quotes-box >  .quote5{
 	opacity: 1;
 	z-index: 1;
 	transform: scale(1);
