@@ -5,7 +5,7 @@
 }
 
 body{
-    overflow-y: hidden;
+    overflow: hidden;
     background-image: url(./memassets/wall.jpg);
 }
 
@@ -46,11 +46,10 @@ body{
 .quote{
     width: 440px;
     text-align: center;
-    z-index: 99;
     position: absolute;
-    top: -30px;
+    top: 50px;
     font-size: 24px;
-    color: white;
+    color: black;
     z-index: 0;
     transform: scale(1.5);
     transition: transform ease-in 0.5s, opacity ease-in 0.5s;
@@ -99,7 +98,7 @@ body{
 .mem-controls{
     position: absolute;
     left: 50%;
-    margin-left: -98px;
+    margin-left: -90px;
 }
 
 .wrapper label{
@@ -154,3 +153,19 @@ body{
     overflow: hidden;
     }
     
+
+
+@media (max-width: 580px) {
+    .wrapper{
+        position: relative;
+        height: 400px;
+        width: 300px;
+        margin: 20vh auto;
+    }
+
+    .quote{
+        width: 300px;
+        font-size: 16px;
+        top: -22px;
+    }
+}
